@@ -1,7 +1,11 @@
 from abc import ABC, abstractmethod
 
 
-class Pizzafactory(ABC):            #Fábrica
+class Pizzafactory(ABC):
+    def __init__(self):
+        self.createpizzaveg()
+        self.createpizzacandy()
+
     @abstractmethod
     def createpizzaveg(self):
         pass
@@ -16,30 +20,30 @@ class Pizzafactory(ABC):            #Fábrica
 
 class Regionrich(Pizzafactory):         #Lojas nas regiões
     def createpizzaveg(self):
-        return Typevegrich()
+        return Typevegrich().descricion()
 
     def createpizzacandy(self):
-        return Typecandyrich()
+        return Typecandyrich().descricion()
 
     def createpizzatraditional(self):
         return Typetraditionalrich()
 
 class Regionpoor(Pizzafactory):
     def createpizzaveg(self):
-        return Typevegpoor()
+        return Typevegpoor().descricion()
 
     def createpizzacandy(self):
-        return Typecandypoor()
+        return Typecandypoor().descricion()
 
     def createpizzatraditional(self):
         return Typetraditionalpoor()
 
 class Regionmediun(Pizzafactory):
     def createpizzaveg(self):
-        return Typevegmediun()
+        return Typevegmediun().descricion()
 
     def createpizzacandy(self):
-        return Typecandymediun()
+        return Typecandymediun().descricion()
 
     def createpizzatraditional(self):
         return Typetraditionalmediun()
@@ -51,15 +55,15 @@ class Vegpizza(ABC):
 
 class Typevegrich(Vegpizza):
     def descricion(self):
-        print('Massa vegana a base dos melhores ingredientes.')
+        print('Massa VEGANA a base dos melhores ingredientes.')
 
 class Typevegpoor(Vegpizza):
     def descricion(self):
-        print('Massa vegana a base de ingredientes reaproveitados.')
+        print('Massa VEGANA a base de ingredientes reaproveitados.')
 
 class Typevegmediun(Vegpizza):
     def descricion(self):
-        print('Massa vegana a base de ingredientes de 2 linha.')
+        print('Massa VEGANA a base de ingredientes de 2 linha.')
 
 class Candypizza(ABC):
     def descricion(self):
@@ -67,10 +71,23 @@ class Candypizza(ABC):
 
 class Typecandyrich(Candypizza):
     def descricion(self):
-        print('Massa para pizza doce a base dos melhores ingredientes.')
+        print('Massa DOCE a base dos melhores ingredientes.')
+
+class Typecandypoor(Candypizza):
+    def descricion(self):
+        print('Massa DOCE a base de produtos reaproveitados.')
+
+class Typecandymediun(Candypizza):
+    def descricion(self):
+        print('Massa DOCE a base de produtos de 2 linha.')
+
+
+
+
+
+
 
 
 
 if __name__ == '__main__':
     ff = Regionrich()
-    ff.createpizzaveg()
