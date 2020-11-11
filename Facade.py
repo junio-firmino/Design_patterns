@@ -14,6 +14,24 @@ class Gerenciamentoevento():
         self.musician = Musician()
         self.musician.setmusictype()
 
-    
+    def organization_buffet(self):
+        self.buffet = Buffet()
+        self.buffet.setbuffet()
+
+class Hotelier:
+    def bookhotel(self):
+        print('Reservas dos quartos providencidos!.')
+
+class Florist:
+    def setflowerrequirements(self):
+        print('Tipos de flores e aromas providenciados!.')
+
+class Musician:
+    def setmusictype(self):
+        print('Musicos e repertórios escolhidos e providenciados!.')
+
+class Buffet:
+    def setbuffet(self):
+        print('Tipos de aperitivos, comidas e doces escolhidos e providenciados!')
 
 
