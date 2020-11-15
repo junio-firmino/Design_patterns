@@ -23,8 +23,8 @@ class Agent:
     def work(self):
         es = input("False ou True? ").title()
         self.actor = Actor(es)
-        if self.actor.getstatus():
-            self.actor.occupied()
+        if self.actor.getstatus():  # Se o método getstatus for TRUE o método continua.
+            self.actor.occupied()   # No entanto se o método for FALSE o mesmo não prossegue e vai para outra parte da decisão
         else:
             self.actor.available()
 
