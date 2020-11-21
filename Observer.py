@@ -5,25 +5,28 @@ class Subject:
     def register(self, observer):
         self.observers.append(observer)
 
-    def notifyall(self,*args,**kwargs):
+    def notifyall(self, *args, **kwargs):
         for observer in self.observers:
-            observer.notify(self,*args,**kwargs)
+            observer.notify(self, *args, **kwargs)
+
 
 class Observer1:
-    def __init__(self,sub):
-        Subject.register(self,sub)
+    def __init__(self, bc):
+        bc.register(self)
 
-    def notify(self,sub,*args):
-        print(type(self).__name__,':get', args, 'from', sub)
+    def notify(self, bc, *args):
+        print(type(self).__name__, ':get', args, 'from', bc)
+
 
 class Observer2:
-    def __init__(self, sub):
-        subject.register(self)
+    def __init__(self, bc):
+        bc.register(self)
 
-    def notify(self, sub, *args):
-        print(type(self).__name__,':get', args, 'from', sub)
+    def notify(self, bc, *args):
+        print(type(self).__name__, ':get', args, 'from', bc)
+
 
 bc = Subject()
-ob1 = Observer1(oi)
-ob2 = Observer2(loi)
+ob1 = Observer1(bc)
+ob2 = Observer2(bc)
 bc.notifyall('vamos ver')
